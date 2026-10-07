@@ -32,7 +32,7 @@ if (readyCheck && continueButton) {
 // =========================================
 
 
-const targetDate = new Date("2026-10-09T01:40:00").getTime();
+const targetDate = new Date("2026-10-08T01:44:00").getTime();
 
 
 const daysElement = document.getElementById("days");
