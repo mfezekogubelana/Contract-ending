@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.welcome-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fff5f5, #ffe4e6);
+    color: #4a1c2b;
+}
+
+.welcome-container {
+    width: 90%;
+    max-width: 550px;
+    padding: 50px 35px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(100, 30, 50, 0.15);
+}
+
+.heart {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.welcome-text {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.small-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.check-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.check-container input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #c9184a;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background: #c9a3ad;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.danger-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #050505;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.danger-container {
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    padding: 50px 30px;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    background: #0b0b0b;
+}
+
+.danger-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.danger-page h1 {
+    color: #ff0000;
+    font-size: 42px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+.danger-message {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.savage-message {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #cccccc;
+    margin-bottom: 40px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.time-box {
+    min-width: 130px;
+    padding: 20px;
+    background: #111111;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.time-box span {
+    display: block;
+    font-size: 45px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.time-box small {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.bottom-warning {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #888888;
+}
+
+.bottom-warning strong {
+    color: #ff0000;
+}
