@@ -192,47 +192,251 @@ button:disabled {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background: #050505;
-    color: white;
+    align-items: flex-start;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 192, 210, 0.12), transparent 18%),
+        radial-gradient(circle at 80% 15%, rgba(255, 192, 210, 0.10), transparent 16%),
+        linear-gradient(135deg, #260a12 0%, #3b1119 30%, #190b11 100%);
+    color: #f8dfe5;
     font-family: Arial, sans-serif;
     overflow: hidden;
+    padding: 24px 12px;
 }
 
 .danger-container {
-    width: 90%;
-    max-width: 900px;
+    width: min(92vw, 1020px);
+    max-width: 1020px;
     text-align: center;
-    padding: 50px 30px;
-    border: 2px solid #ff0000;
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-    background: #0b0b0b;
+    padding: clamp(28px, 4vw, 56px) clamp(18px, 3vw, 40px);
+    border: 1px solid rgba(255, 203, 216, 0.4);
+    border-radius: 34px;
+    background: rgba(48, 15, 22, 0.7);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255,255,255,0.04);
+    backdrop-filter: blur(5px);
 }
 
 .danger-icon {
-    font-size: 80px;
-    margin-bottom: 20px;
+    font-size: clamp(54px, 6vw, 90px);
+    margin-bottom: 14px;
+    filter: drop-shadow(0 0 16px rgba(255, 135, 170, 0.35));
 }
 
 .danger-page h1 {
-    color: #ff0000;
-    font-size: 42px;
-    letter-spacing: 3px;
+    color: #f1ced8;
+    font-size: clamp(2.8rem, 5vw, 6rem);
+    letter-spacing: 0.08em;
     margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    text-shadow: 0 0 18px rgba(255, 136, 177, 0.32);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 0.95;
 }
 
 .danger-message {
-    font-size: 26px;
-    margin-bottom: 15px;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    margin-bottom: 14px;
+    font-style: italic;
+    color: #f4d8df;
 }
 
 .savage-message {
-    font-size: 18px;
+    font-size: clamp(1rem, 1.6vw, 1.5rem);
     line-height: 1.7;
-    color: #cccccc;
-    margin-bottom: 40px;
+    color: rgba(240, 214, 221, 0.9);
+    margin: 0 auto 28px;
+    max-width: 620px;
 }
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: clamp(12px, 2vw, 20px);
+    flex-wrap: wrap;
+    margin: 0 auto 34px;
+    max-width: 760px;
+}
+
+.time-box {
+    min-width: clamp(110px, 13vw, 150px);
+    padding: clamp(18px, 2vw, 24px) clamp(12px, 2vw, 18px);
+    background: rgba(15, 6, 10, 0.65);
+    border: 1px solid rgba(255, 165, 189, 0.5);
+    border-radius: 18px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+}
+
+.time-box span {
+    display: block;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: bold;
+    color: #f7dfe7;
+}
+
+.time-box small {
+    display: block;
+    margin-top: 10px;
+    font-size: clamp(10px, 1vw, 13px);
+    letter-spacing: 0.2em;
+    color: rgba(250, 221, 229, 0.8);
+}
+
+.bottom-warning {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    margin-top: 20px;
+}
+
+.bottom-warning strong {
+    color: #f9d7e3;
+}
+
+
+/* =========================================
+   DANGER PAGE EFFECTS
+   ========================================= */
+
+body {
+    margin: 0;
+}
+
+.danger-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 192, 210, 0.12), transparent 18%),
+        radial-gradient(circle at 80% 15%, rgba(255, 192, 210, 0.10), transparent 16%),
+        linear-gradient(135deg, #260a12 0%, #3b1119 30%, #190b11 100%);
+    color: #f8dfe5;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    padding: 24px 12px;
+}
+
+.danger-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(255, 255, 255, 0.02) 3px,
+        rgba(255, 255, 255, 0.02) 6px
+    );
+    opacity: 0.7;
+}
+
+.danger-container {
+    position: relative;
+    z-index: 2;
+    margin: auto 0;
+    width: min(92vw, 1020px);
+    max-width: 1020px;
+    text-align: center;
+    padding: clamp(28px, 4vw, 56px) clamp(18px, 3vw, 40px);
+    border: 1px solid rgba(255, 203, 216, 0.4);
+    border-radius: 34px;
+    background: rgba(48, 15, 22, 0.7);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255,255,255,0.04);
+    backdrop-filter: blur(5px);
+    animation: dangerPulse 2s infinite;
+}
+
+.danger-icon {
+    font-size: clamp(54px, 6vw, 90px);
+    margin-bottom: 14px;
+    filter: drop-shadow(0 0 16px rgba(255, 135, 170, 0.35));
+    animation: warningShake 1.2s infinite;
+}
+
+.warning-label {
+    color: #f0c6d2;
+    font-size: clamp(10px, 1.2vw, 15px);
+    font-weight: bold;
+    letter-spacing: 0.45em;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    animation: warningFlash 1s infinite;
+}
+
+.danger-page h1 {
+    position: relative;
+    color: #f1ced8;
+    font-size: clamp(2.8rem, 5vw, 6rem);
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 18px rgba(255, 136, 177, 0.32);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 0.95;
+}
+
+/* GLITCH EFFECT */
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.glitch::before {
+    color: rgba(255, 255, 255, 0.7);
+    animation: glitchTop 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    color: rgba(255, 120, 160, 0.7);
+    animation: glitchBottom 1.5s infinite linear alternate-reverse;
+}
+
+.danger-message {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    margin-bottom: 14px;
+    font-style: italic;
+    color: #f4d8df;
+}
+
+.savage-message {
+    font-size: clamp(1rem, 1.6vw, 1.5rem);
+    line-height: 1.7;
+    color: rgba(240, 214, 221, 0.9);
+    margin: 0 auto 28px;
+    max-width: 620px;
+}
+
+/* SOUND BUTTON */
+
+.sound-button {
+    display: none;
+    margin: 18px auto 28px;
+    padding: 13px 22px;
+    border: 1px solid rgba(255, 189, 210, 0.5);
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(232, 80, 116, 0.18), rgba(120, 27, 47, 0.45));
+    color: #ffdce7;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 12px 25px rgba(167, 48, 81, 0.18);
+}
+
+.sound-button.show {
+    display: inline-block;
+}
+
+.sound-button:hover {
+    background: linear-gradient(135deg, #e55a7c, #a32d56);
+    color: #fff;
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* COUNTDOWN */
 
 .countdown {
     display: flex;
@@ -265,6 +469,44 @@ button:disabled {
     color: white;
 }
 
+/* ZERO SCREEN */
+
+.zero-message {
+    display: none;
+    padding: 30px 20px;
+    margin: 20px 0;
+    border: 3px solid #ff0000;
+    background: #180000;
+    animation: zeroReveal 1s ease-in-out;
+}
+
+.zero-message.show {
+    display: block;
+}
+
+.zero-icon {
+    font-size: 65px;
+    margin-bottom: 10px;
+}
+
+.zero-message h2 {
+    color: #ff0000;
+    font-size: 40px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+    animation: warningFlash 0.8s infinite;
+}
+
+.zero-message p {
+    color: #dddddd;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.zero-message strong {
+    color: #ff0000;
+}
+
 .bottom-warning {
     font-size: 15px;
     line-height: 1.7;
@@ -273,4 +515,426 @@ button:disabled {
 
 .bottom-warning strong {
     color: #ff0000;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes dangerPulse {
+
+    0%, 100% {
+        box-shadow:
+            0 0 20px rgba(255, 0, 0, 0.4),
+            inset 0 0 20px rgba(255, 0, 0, 0.08);
+    }
+
+    50% {
+        box-shadow:
+            0 0 45px rgba(255, 0, 0, 0.8),
+            inset 0 0 30px rgba(255, 0, 0, 0.15);
+    }
+}
+
+@keyframes warningShake {
+
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-4deg);
+    }
+
+    75% {
+        transform: rotate(4deg);
+    }
+}
+
+@keyframes warningFlash {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+@keyframes scanlines {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(6px);
+    }
+}
+
+@keyframes glitchTop {
+
+    0% {
+        clip-path: inset(0 0 80% 0);
+        transform: translate(-3px);
+    }
+
+    20% {
+        clip-path: inset(20% 0 50% 0);
+        transform: translate(3px);
+    }
+
+    40% {
+        clip-path: inset(40% 0 30% 0);
+        transform: translate(-2px);
+    }
+
+    60% {
+        clip-path: inset(60% 0 10% 0);
+        transform: translate(2px);
+    }
+
+    100% {
+        clip-path: inset(0 0 80% 0);
+        transform: translate(0);
+    }
+}
+
+@keyframes glitchBottom {
+
+    0% {
+        clip-path: inset(70% 0 0 0);
+        transform: translate(3px);
+    }
+
+    50% {
+        clip-path: inset(40% 0 20% 0);
+        transform: translate(-3px);
+    }
+
+    100% {
+        clip-path: inset(80% 0 0 0);
+        transform: translate(2px);
+    }
+}
+
+@keyframes zeroReveal {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================================
+   PHONE VERSION
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .danger-page {
+        padding: 16px 8px;
+    }
+
+    .danger-container {
+        width: min(95vw, 520px);
+        padding: 24px 14px;
+    }
+
+    .danger-icon {
+        font-size: 50px;
+    }
+
+    .warning-label {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .danger-page h1 {
+        font-size: 27px;
+        letter-spacing: 1px;
+        line-height: 1.2;
+    }
+
+    .danger-message {
+        font-size: 18px;
+    }
+
+    .savage-message {
+        font-size: 15px;
+    }
+
+    .countdown {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        gap: 12px;
+    }
+
+    .time-box {
+        min-width: 0;
+        padding: 15px 8px;
+    }
+
+    .time-box span {
+        font-size: 32px;
+    }
+
+    .time-box small {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .sound-button {
+        width: 100%;
+        max-width: 300px;
+        font-size: 13px;
+    }
+
+    .zero-message {
+        padding: 22px 14px;
+    }
+
+    .zero-message h2 {
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+
+    .zero-icon {
+        font-size: 50px;
+    }
+
+    .bottom-warning {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================
+   FINAL REVEAL
+   ========================================= */
+
+.zero-reached {
+    animation: finalShake 0.15s infinite;
+}
+
+.zero-reached .danger-container {
+    animation:
+        dangerPulse 0.5s infinite,
+        finalFlash 0.7s infinite;
+}
+
+.zero-reached .countdown {
+    display: none;
+}
+
+.zero-message {
+    position: relative;
+    overflow: hidden;
+}
+
+.final-warning {
+    color: #ff0000;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.zero-message h2 {
+    font-size: 55px;
+    letter-spacing: 7px;
+    color: #ff0000;
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 30px #ff0000;
+    margin-bottom: 20px;
+}
+
+.reveal-line {
+    width: 80%;
+    max-width: 500px;
+    height: 2px;
+    margin: 20px auto;
+    background: #ff0000;
+    box-shadow: 0 0 15px #ff0000;
+}
+
+.reveal-intro {
+    color: #bbbbbb;
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+.reveal-message {
+    margin-top: 25px;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.reveal-message strong {
+    color: #ff0000;
+}
+
+.final-message {
+    margin-top: 35px;
+    padding: 30px 25px;
+    background: #090909;
+    border: 1px solid #ff0000;
+    box-shadow:
+        0 0 20px rgba(255, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 0, 0, 0.05);
+
+    animation: revealAppear 1.5s ease forwards;
+}
+
+.final-heart {
+    font-size: 55px;
+    margin-bottom: 15px;
+    animation: heartBeat 1.2s infinite;
+}
+
+.final-message h3 {
+    color: white;
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.final-message p {
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.final-message .final-signature {
+    color: #ff0000;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   FINAL ANIMATIONS
+   ========================================= */
+
+@keyframes finalShake {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(2px, -2px);
+    }
+
+    50% {
+        transform: translate(-2px, 2px);
+    }
+
+    75% {
+        transform: translate(2px, 2px);
+    }
+
+    100% {
+        transform: translate(-2px, -2px);
+    }
+}
+
+@keyframes finalFlash {
+
+    0%, 100% {
+        border-color: #ff0000;
+    }
+
+    50% {
+        border-color: white;
+    }
+}
+
+@keyframes revealAppear {
+
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.2);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* =========================================
+   FINAL REVEAL - PHONE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .zero-message {
+        padding: 25px 15px;
+    }
+
+    .zero-message h2 {
+        font-size: 38px;
+        letter-spacing: 3px;
+    }
+
+    .final-warning {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .reveal-intro {
+        font-size: 15px;
+    }
+
+    .reveal-message {
+        font-size: 17px;
+    }
+
+    .final-message {
+        padding: 25px 18px;
+        margin-top: 25px;
+    }
+
+    .final-heart {
+        font-size: 45px;
+    }
+
+    .final-message h3 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    .final-message p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
 }
